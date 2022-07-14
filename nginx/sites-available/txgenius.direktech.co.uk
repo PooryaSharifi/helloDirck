@@ -1,0 +1,19 @@
+server {
+    listen 443 ssl;
+
+    ssl_certificate             /etc/nginx/server-cert.crt;
+    ssl_certificate_key         /etc/nginx/server-cert.key;
+
+
+        root "/var/www/txgenius.direktech.co.uk";
+
+	index index.html;
+        server_name txgenius.direktech.co.uk;
+        server_name www.txgenius.direktech.co.uk;
+        server_name ipv4.txgenius.direktech.co.uk;
+
+
+	location / {
+		try_files $uri $uri/ /index.html;
+        }
+}
